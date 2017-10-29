@@ -3,8 +3,21 @@
 
     <div class="container">
         <div class="row">
+            <form class="form-group-lg"  method="POST" action="/login">
 
-            <h1>This Is login</h1>
+                <label for="username" id="">username</label><br/>
+                <input type="text" name="username" value="username"><br/>
+
+                <label for="password" id="password">password</label><br/>
+                <input type="password" name="password" ><br/>
+
+                <input type="hidden" name="_token" value="{{csrf_token() }}">
+                <button type="submit" class="btn btn-primary">
+                    login
+                </button>
+
+            </form>
+
         </div>
     </div>
 

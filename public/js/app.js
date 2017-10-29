@@ -1024,7 +1024,7 @@ window.axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest'
 };
 /**
- * Next we will register the CSRF Token as a common header with Axios so that
+ * Next we will registerController the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just
  * a simple convenience so we don't have to attach every token manually.
  */
@@ -28378,7 +28378,7 @@ jQuery.nodeName = nodeName;
 // Register as a named AMD module, since jQuery can be concatenated with other
 // files that may use define, but not via a proper concatenation script that
 // understands anonymous AMD modules. A named AMD is safest and most robust
-// way to register. Lowercase jquery is used because AMD module names are
+// way to registerController. Lowercase jquery is used because AMD module names are
 // derived from file names, and jQuery is normally delivered in a lowercase
 // file name. Do this after creating the global so that if an AMD module wants
 // to call noConflict to hide this version of jQuery, it will work.
@@ -29682,7 +29682,7 @@ if (typeof jQuery === 'undefined') {
     if ($this.is('a')) e.preventDefault()
 
     $target.one('show.bs.modal', function (showEvent) {
-      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown
+      if (showEvent.isDefaultPrevented()) return // only registerController focus restorer if modal will actually get shown
       $target.one('hidden.bs.modal', function () {
         $this.is(':visible') && $this.trigger('focus')
       })
@@ -37083,7 +37083,7 @@ function createPatchFunction (backend) {
         ) {
           warn(
             'Unknown custom element: <' + tag + '> - did you ' +
-            'register the component correctly? For recursive components, ' +
+            'registerController the component correctly? For recursive components, ' +
             'make sure to provide the "name" option.',
             vnode.context
           );
@@ -42344,7 +42344,7 @@ exports.clearImmediate = clearImmediate;
       for (var i = 0; i < args.length; i++) {
           args[i] = arguments[i + 1];
       }
-      // Store and register the task
+      // Store and registerController the task
       var task = { callback: callback, args: args };
       tasksByHandle[nextHandle] = task;
       registerImmediate(nextHandle);
@@ -42624,7 +42624,7 @@ module.exports = function normalizeComponent (
       if (injectStyles) {
         injectStyles.call(this, context)
       }
-      // register component module identifier for async chunk inferrence
+      // registerController component module identifier for async chunk inferrence
       if (context && context._registeredComponents) {
         context._registeredComponents.add(moduleIdentifier)
       }
@@ -42651,7 +42651,7 @@ module.exports = function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // registerController for functioal component in vue file
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
         return existing(h, context)
