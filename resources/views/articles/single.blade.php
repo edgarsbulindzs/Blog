@@ -8,11 +8,12 @@
         <div class="col-sm-8">
 
             <h1>{{$article->title}}</h1>
-            <img style="width: 100px;" src="storage/storage/cover_images/{{$article->cover_image}}">
+            <img style="width: 100px;" src="storage/storage/cover_images/{{$article->cover_image}}">{{$article->cover_image}}
             <img href="storage/storage/cover_images/{{$article->cover_image}}">
             <br><br>
             <div>
-                {{$article->body}}
+
+                <p>{{$article->body}}</p>
             </div>
             <hr>
             <small>Written on {{$article->created_at}} by {{$article->user->username}}</small>

@@ -11,41 +11,24 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('Login', ['except' => ['index', 'show']]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
 
         $article = Article::orderBy('created_at','desc')->paginate(10);
         return view('articles.blog')->with('article', $article);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('articles.create');
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -53,11 +36,11 @@ class ArticlesController extends Controller
             'body' => 'required',
             'cover_image' => 'image|nullable|max:1999'
         ]);
-        // Handle File Upload
+        // faila augsuplades handlers
         if($request->hasFile('cover_image')){
-            // Get filename with the extension
+
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            // Get just filename
+            // iegustr faila nosaukumu
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just ext
             $extension = $request->file('cover_image')->getClientOriginalExtension();
@@ -77,23 +60,13 @@ class ArticlesController extends Controller
         $article->save();
         return redirect('/blog')->with('success', 'Article Created');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $article = Article::find($id);
         return view('articles.single')->with('article', $article);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $article = Article::find($id);
@@ -103,13 +76,7 @@ class ArticlesController extends Controller
         }
         return view('articles.edit')->with('article', $article);
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -118,20 +85,20 @@ class ArticlesController extends Controller
             'cover_image' => 'image|nullable|max:1999'
         ]);
 
-        // Handle File Upload
+        // faila augsuplades handler
         if($request->hasFile('cover_image')){
-            // Get filename with the extension
+            // iegust faila tiupu
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            // Get just filename
+            // iegust faila vardu
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
+            // tikai vfaila tiops
             $extension = $request->file('cover_image')->getClientOriginalExtension();
-            // Filename to store
+            // faila vards ko saglabat
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
+            //saglabat bildi
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
-        // Create Post
+        // izveido artiicle
         $articles = Article::find($id);
         $articles->title = $request->input('title');
         $articles->body = $request->input('body');
@@ -145,12 +112,12 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         $article = Article::find($id);
-        // Check for correct user
+        // parbauda vai lietotajs ir istais
         if(auth()->user()->id !==$article->user_id){
             return redirect('/blog')->with('error', 'Unauthorized Page');
         }
         if($article->cover_image != 'noimage.jpg'){
-            // Delete Image
+            // izdzes bildi
             Storage::delete('public/cover_images/'.$article->cover_image);
         }
 

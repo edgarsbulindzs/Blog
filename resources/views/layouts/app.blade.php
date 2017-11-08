@@ -17,14 +17,16 @@
    </script>
 </head>
 <body>
-
+@yield
 
 <div id="app">
     @include('inc.nav')
+
         <div class="container">
             <div class="myFirst">
         @yield('articles')
         @yield('content')
+
     </div></div>
 </div>
     <!-- Scripts -->
