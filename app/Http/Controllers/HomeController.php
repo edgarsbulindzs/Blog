@@ -31,6 +31,7 @@ class HomeController extends Controller
     {
         return view('base');
     }
+
     public function aboutus()
     {
         return view('aboutus');

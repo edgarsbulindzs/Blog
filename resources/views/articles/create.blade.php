@@ -2,7 +2,7 @@
 
 @section('content')
 
-<p>dasdasdasdasdas</p>
+
 
 <div class="container">
     <div class="row">

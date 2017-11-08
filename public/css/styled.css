@@ -6,3 +6,29 @@
 .myCenter{
     margin: auto;
 }
+.myli a,.styleli a{
+    margin:15px;
+    text-decoration: none;
+}
+.navbar .active{
+    color: goldenrod;
+}
+.imgP{
+    margin-top: 10px;
+    border: 1px solid rgba(214, 214, 214, 0.66);
+    padding: 5px;
+    border-radius: 10px;
+
+}
+
+.well{
+    margin: auto;
+    width:600px;
+}
+
+.myimg{
+    padding: 10px;
+    margin: auto;
+    width: 200px;
+    height: 130px;
+}
