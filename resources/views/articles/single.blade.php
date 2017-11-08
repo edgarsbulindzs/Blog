@@ -15,7 +15,7 @@
                 {{$article->body}}
             </div>
             <hr>
-            <small>Written on {{$article->created_at}} by {{$article->user->name}}</small>
+            <small>Written on {{$article->created_at}} by {{$article->user->username}}</small>
             <hr>
         </div>
         <div class="col-sm-6">
