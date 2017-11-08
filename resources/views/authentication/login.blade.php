@@ -1,13 +1,21 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="container">
+<div class="container">
         <div class="row">
-            <form class="form-group-lg"  method="POST" action="/login">
+
+            <form class="form-group-lg"  method="POST" action="{{route('authen')}}">
+
 
                 <label for="username" id="">username</label><br/>
                 <input type="text" name="username" value="username"><br/>
 
+
+                @if ($errors->has('password'))
+                    @foreach( $errors->get('password') AS $error )
+                        <li>  {{ $error }}</li>
+                    @endforeach
+                @endif
                 <label for="password" id="password">password</label><br/>
                 <input type="password" name="password" ><br/>
 
@@ -16,7 +24,7 @@
                     login
                 </button>
 
-            </form>
+    </form>
 
         </div>
     </div>

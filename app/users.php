@@ -13,4 +13,7 @@ public $fillable = ['username','password','country','city','first_name','last_na
 
 protected $hidden = ['password','remember_token'];
 
+    public function article(){
+        return $this->hasMany('App\Article');
+    }
 }

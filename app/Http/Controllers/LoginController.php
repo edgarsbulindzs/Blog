@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 
 use App\users;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\ServiceProvider;
+use App\Http\Middleware;
 
 class LoginController extends Controller
 {
@@ -15,6 +17,8 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+//
+
     public function login()
     {
         return view('authentication.login');
@@ -22,24 +26,35 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $message = 'user does not exist or you type incorect data';
-        $this->validate($request, [
-            'username' => 'required|username',
-            'password' => 'required',
-        ]);
-        if (auth()->attempt(['username' => $request->input('username'), 'password' => $request->input('password')])) {
             $user = auth()->user();
-            return view('dashboard.dashboard');
+        if (auth()->attempt(['username' => $request->input('username'),
+            'password' => $request->input('password')])) {
+
+            $request->session()->put('username',$user);
+
+            return redirect('/dashboard');
         } else {
-            return redirect('/blog');
+            return back()->withInput()->withErrors(
+                [
+                    'username' => 'username is incorrect',
+                    'password'=> 'password is incorrect'
+
+                ]);
         }
-    }
 
-    public function validate(Request $request, array $rules,
-                             array $messages = ['username', 'password'], array $customAttributes = ['username', 'password'])
+    }
+//    public function red(){
+//        if (auth()->guest() == true){
+//            return redirect('/login');
+//
+//        }elseif(auth()->guest() == false){
+//            return view('dashboard.dashboard');
+//        }
+//    }
+
+    public function logout(Request $request)
     {
-
+            $request->session()->flush();
+            return redirect('/');
     }
-
-
 }

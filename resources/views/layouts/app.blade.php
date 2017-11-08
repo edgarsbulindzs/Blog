@@ -11,20 +11,22 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/styled.css')}}" rel="stylesheet">
     <script>
 
    </script>
 </head>
 <body>
-@include('inc.nav')
+
 
 <div id="app">
-
-
-
+    @include('inc.nav')
+        <div class="container">
+            <div class="myFirst">
+        @yield('articles')
         @yield('content')
-    </div>
-
+    </div></div>
+</div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

@@ -20,19 +20,35 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{route('home')}}">Home</a></li>
-                &nbsp;<li><a href="{{route('blog')}}">Blog</a></li>
+                &nbsp;<li><a href="{{url('/blog')}}">Article</a></li>
                 <li><a href="{{route('gallery')}}">Gallery</a></li>
                <li><a href="{{route('production')}}">Production</a></li>
                 <li><a href="{{route('aboutus')}}">Aboutus</a></li>
             </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-
+                @if (auth()->guest())
                 <li><a href="{{route('login')}}">Login</a></li>
                 <li><a href="{{route('registration')}}">Register</a></li>
+                @else
             </ul>
+            {{--logout link only loged user can see--}}
+            <ul class="nav navbar-nav navbar-right">
+               <li><a href="{{route('dash')}}">dashboard </a></li>
+                <li >
+                        <a href="{{route('dash')}}">
+
+
+                            {{ auth()->user()->username }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/base">logout</a>
+                        {{ csrf_field() }}
+                    </li>
+            </ul>
+            @endif
         </div>
     </div>
 </nav>

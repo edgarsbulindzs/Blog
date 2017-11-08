@@ -1,8 +1,10 @@
-
-
 @extends ('layouts.app')
-
 @section('content')
 
-    <h1>This is dashboard </h1>
-      @endsection
+<a href="{{route('CreateART')}}"><button type="submit" class="btn btn-primary ">Create article</button></a>
+
+@endsection
+
+
+
+
