@@ -31,10 +31,6 @@ class UserController extends Controller
 
     }
 
-    public function dsa()
-    {
-        return view('dashboard.dashboard');
-    }
 
 
     public function store(Request $request)

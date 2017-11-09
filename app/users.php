@@ -1,19 +1,19 @@
 <?php
 
 namespace App;
-
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Article;
 class users extends Model
 {
 protected $table = 'users';
 
-public $fillable = ['username','password','country','city','first_name','last_name'];
+
+
+protected $fillable = ['username','password','country','city','first_name','last_name'];
 
 protected $hidden = ['password','remember_token'];
 
-    public function article(){
+    public function articles(){
         return $this->hasMany('App\Article');
     }
 }

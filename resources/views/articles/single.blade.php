@@ -8,8 +8,9 @@
         <div class="col-sm-8">
 
             <h1>{{$article->title}}</h1>
-            <img style="width: 100px;" src="storage/storage/cover_images/{{$article->cover_image}}">{{$article->cover_image}}
-            <img href="storage/storage/cover_images/{{$article->cover_image}}">
+
+            <img style="width:100%" src="Storage::url({{$article->cover_image}})">
+
             <br><br>
             <div>
 

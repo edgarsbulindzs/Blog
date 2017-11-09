@@ -34,7 +34,8 @@ class ArticlesController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
+            'cover_image' => 'image|nullable|max:1999',
+
         ]);
         // faila augsuplades handlers
         if($request->hasFile('cover_image')){
@@ -64,6 +65,7 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+
         return view('articles.single')->with('article', $article);
     }
 

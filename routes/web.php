@@ -25,7 +25,8 @@ Route::group(['middleware' => 'web'], function () {
 //
 });
 //atgriez dashboard VIEW
-Route::get('/dashboard','UserController@dsa')->name('dash');
+//Route::get('/dashboard','UserController@dsa')->name('dash');
+Route::get('/dashboard','DashBoardController@dsa')->name('dash');
 
 
 

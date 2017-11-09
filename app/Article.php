@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\users;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -15,6 +15,6 @@ class Article extends Model
     public $timestamps = true;
 
     public function user(){
-        return $this->belongsTo('App\Users');
+        return $this->belongsTo('App\users');
     }
 }
