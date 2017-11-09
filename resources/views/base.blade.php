@@ -47,7 +47,7 @@
     <div class="row" style="margin: 20px">
         @if(count($articles) > 0)
             @foreach($articles as $article)
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">{{$article->title}}</h4>

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 
-
 class ArticlesController extends Controller
 {
 
@@ -20,7 +19,7 @@ class ArticlesController extends Controller
     public function index()
     {
 
-        $article = Article::orderBy('created_at','desc')->paginate(10);
+        $article = Article::orderBy('created_at', 'desc')->paginate(10);
         return view('articles.blog')->with('article', $article);
     }
 
@@ -38,7 +37,7 @@ class ArticlesController extends Controller
 
         ]);
         // faila augsuplades handlers
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
 
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
             // iegustr faila nosaukumu
@@ -46,7 +45,7 @@ class ArticlesController extends Controller
             // Get just ext
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             // faila nosaukums ko saglabāt
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
             // Ubildes augsupielade
             $path = $request->file('cover_image')->storeAs('public/storage/cover_images', $fileNameToStore);
         } else {
@@ -72,8 +71,8 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        // Check for correct user
-        if(auth()->user()->id !==$article->user_id){
+        // parbauda pareizo user
+        if (auth()->user()->id !== $article->user_id) {
             return redirect('/blog')->with('error', 'Unauthorized Page');
         }
         return view('articles.edit')->with('article', $article);
@@ -84,11 +83,11 @@ class ArticlesController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'cover_image' => 'image|nullable|max:1999'
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         // faila augsuplades handler
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             // iegust faila tiupu
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
             // iegust faila vardu
@@ -96,7 +95,7 @@ class ArticlesController extends Controller
             // tikai vfaila tiops
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             // faila vards ko saglabat
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
             //saglabat bildi
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
         }
@@ -104,7 +103,7 @@ class ArticlesController extends Controller
         $articles = Article::find($id);
         $articles->title = $request->input('title');
         $articles->body = $request->input('body');
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             $articles->cover_image = $fileNameToStore;
         }
         $articles->save();
@@ -115,12 +114,12 @@ class ArticlesController extends Controller
     {
         $article = Article::find($id);
         // parbauda vai lietotajs ir istais
-        if(auth()->user()->id !==$article->user_id){
+        if (auth()->user()->id !== $article->user_id) {
             return redirect('/blog')->with('error', 'Unauthorized Page');
         }
-        if($article->cover_image != 'noimage.jpg'){
+        if ($article->cover_image != 'noimage.jpg') {
             // izdzes bildi
-            Storage::delete('public/cover_images/'.$article->cover_image);
+            Storage::delete('public/cover_images/' . $article->cover_image);
         }
 
         $article->delete();
