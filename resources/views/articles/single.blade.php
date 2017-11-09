@@ -6,14 +6,10 @@
 
     <div class="row" >
         <div class="col-sm-8" style="margin: auto;" >
-
             <h1>{{$article->title}}</h1>
             <img style="width:20%" src="/storage/cover_images/{{$article->cover_image}}">
-
-
             <br><br>
             <div>
-
                 <p>{{$article->body}}</p>
             </div>
             <hr>
@@ -21,21 +17,11 @@
             <hr>
         </div>
         <div class="col-sm-6" style="margin:auto;">
-
             @if(!auth()->guest())
                 @if(auth()->user()->id == $article->user_id)
-
-
-
-
-
                         <a href="{{route('delete',$article->id)}}">
-
-
                             <button type="submit" class="btn btn-danger pull-right" title="Delete">Delete</button>
-
                         </a>
-
                     <a href="{{route('edit', $article->id)}}">
                         <button type="submit" class="btn btn-warning pull-right">edit</button>
                     </a>

@@ -3,33 +3,106 @@
 
     <div class="container">
         <div class="row">
-            <form class="form-group-lg"  method="POST" action="/registration">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Register</div>
+                    <div class="panel-body">
+                        <form style="margin: auto" class="form-horizontal" role="form" method="POST" action="{{route('reg')}}">
+                            {{ csrf_field() }}
+                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                                <label for="username" class="col-md-4 control-label">username</label>
 
-                <label for="username" id="">username</label><br/>
-                <input type="text" name="username" value="username"><br/>
+                                <div class="col-md-6" style="margin: auto">
+                                    <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
-                <label for="first_name" id="first_name">first name</label><br/>
-                <input type="text" name="first_name" value="first_name"><br/>
+                                    @if ($errors->has('username'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
 
-                <label for="last_name">last name</label><br/>
-                <input type="text" name="last_name" value="last_name"><br/>
+                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                                <label for="first_name" class="col-md-4 control-label">first_name</label>
 
-                <label for="country">country</label><br/>
-                <input type="text" name="country" value=""><br/>
+                                <div class="col-md-6" style="margin: auto">
+                                    <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required>
 
-                <label for="city">city</label><br/>
-                <input type="text" name="city" value=""><br/>
+                                    @if ($errors->has('first_name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
 
-                <label for="password">password</label><br/>
-                <input type="password" name="password" value=""><br/>
+                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                                <label for="last_name" class="col-md-4 control-label">last_name</label>
 
-                <input type="hidden" name="_token" value="{{csrf_token() }}">
-                <button type="submit" class="btn btn-primary">
-                    Register
-                </button>
-            </form>
+                                <div class="col-md-6" style="margin: auto">
+                                    <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required>
+
+                                    @if ($errors->has('last_name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
+                                <label for="country" class="col-md-4 control-label">country</label>
+
+                                <div class="col-md-6" style="margin: auto">
+                                    <input id="country" type="text" class="form-control" name="country" required>
+
+                                    @if ($errors->has('country'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('country') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                                <label for="city" class="col-md-4 control-label">city</label>
+
+                                <div class="col-md-6" style="margin: auto">
+                                    <input id="city" type="text" class="form-control" name="city" required>
+
+                                    @if ($errors->has('city'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="col-md-4 control-label">Password</label>
+
+                                <div class="col-md-6" style="margin: auto">
+                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div class="col-md-pull-8 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
     @endsection

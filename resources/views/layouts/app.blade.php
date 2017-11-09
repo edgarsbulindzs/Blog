@@ -26,6 +26,7 @@
             <div class="myFirst">
                 @yield('es')
         @yield('articles')
+                @include('inc.messages')
         @yield('content')
 
     </div>

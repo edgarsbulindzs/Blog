@@ -11,8 +11,8 @@
                 <input type="text" name="username" value="username"><br/>
 
 
-                @if ($errors->has('password'))
-                    @foreach( $errors->get('password') AS $error )
+                @if ($errors->has('username'))
+                    @foreach( $errors->get('password') as $error )
                         <li>  {{ $error }}</li>
                     @endforeach
                 @endif

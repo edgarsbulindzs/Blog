@@ -44,18 +44,36 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        users::create([
-            'username' => request('username'),
-            'first_name' => request('first_name'),
-            'last_name' =>request('last_name'),
-            'country' => request('country'),
-            'city' => request('city'),
-            'password' => bcrypt(request('password')),
+        $input = request()->validate([
+            'username' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'password' => 'required',
+
+
+        ], [
+            'username.required' => 'username is required',
+            'first_name.required' => 'first_name is required',
+            'last_name.required' => 'last_name is required',
+            'country.required' => 'country is required',
+            'city.required' => 'city is required',
+            'password.required' => 'Password is required'
         ]);
+        $input = request()->all();
+        $input['password'] = bcrypt($input['password']);
+        $user = users::create($input);
+        return back()->with('success', 'User created successfully.');
 
-        return redirect('/dashboard' );
-
-
+//        users::create([
+//            'username' => request('username'),
+//            'first_name' => request('first_name'),
+//            'last_name' =>request('last_name'),
+//            'country' => request('country'),
+//            'city' => request('city'),
+//            'password' => bcrypt(request('password')),
+//        ]);
 
     }
 

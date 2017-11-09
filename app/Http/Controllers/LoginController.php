@@ -12,12 +12,7 @@ use App\Http\Middleware;
 class LoginController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-//
+
 
     public function login()
     {
