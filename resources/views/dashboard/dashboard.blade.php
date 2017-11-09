@@ -28,27 +28,20 @@
                                         <td>{{$article->created_at}}</td>
                                         @if(!auth()->guest())
                                             @if(auth()->user()->id == $article->user_id)
-                                                <td >
-
+                                                <td>
                                                     <a href="{{route('edit', $article->id)}}">
                                                         <button type="submit" class="btn btn-warning pull-right">edit
                                                         </button>
                                                     </a>
-
-
-                                                        <a href="{{route('delete',$article->id)}}">
-                                                            <button type="submit" class="btn btn-danger pull-right">Delete
-                                                            </button>
-                                                            </a>
-
-
-                                                    <a href="{{route('CreateART')}}">
-                                                        <button type="submit" class="btn btn-primary pull-right">Article</button>
+                                                    <a href="{{route('delete',$article->id)}}">
+                                                        <button type="submit" class="btn btn-danger pull-right">Delete
+                                                        </button>
                                                     </a>
-
-
-
-
+                                                    <a href="{{route('CreateART')}}">
+                                                        <button type="submit" class="btn btn-primary pull-right">
+                                                            Article
+                                                        </button>
+                                                    </a>
 
                                                 </td>
                                             @endif

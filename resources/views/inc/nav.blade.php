@@ -24,11 +24,11 @@
         <ul class="navbar-nav mr-auto myli">
             <li><a href="{{route('dash')}}">dashboard </a></li>
             <li >
-                <a href="{{route('dash')}}">
 
 
-                    {{ auth()->user()->username }}
-                </a>
+
+                 <p style="color: #2a88bd;">{{ auth()->user()->username }}</p>
+
             </li>
             <li>
                 <a href="/base">logout</a>

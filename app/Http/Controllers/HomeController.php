@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Article;
-
-//use App\Http\Middleware;
 
 class HomeController extends Controller
 {
@@ -29,9 +28,18 @@ class HomeController extends Controller
     }
     public function home()
     {
-        return view('base');
-    }
 
+
+            $articles = Article::orderBy('created_at', 'desc')->take(10)->get();
+
+
+
+        return view('base')->with('articles', $articles);
+    }
+    public function jumbotroon(){
+        return view('componente');
+
+    }
     public function aboutus()
     {
         return view('aboutus');

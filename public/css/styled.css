@@ -9,7 +9,13 @@
 .myli a,.styleli a{
     margin:15px;
     text-decoration: none;
+    color: #237519;
+    font-size: 18px;
 }
+.myli a:hover,.styleli a:hover{
+ color: #9b8a30;
+}
+
 .navbar .active{
     color: goldenrod;
 }

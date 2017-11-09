@@ -9,7 +9,6 @@
                 <label for="body" id="first_name">body</label><br/>
                 <textarea style="width: 700px; height: 300px;" type="text" name="body" id="article-ckeditor"   required>{{ old('body',$article->body)}}</textarea><br/>
 
-
                 <button type="submit" class="btn btn-primary form-control-file">
                     Save
                 </button>

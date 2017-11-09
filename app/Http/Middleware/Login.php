@@ -25,8 +25,6 @@ class Login
             $request->session()->put('username', $user);
 
             return redirect('/dashboard');
-
-
         }
         return $next($request);
 
