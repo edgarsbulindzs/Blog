@@ -51,6 +51,7 @@ class UserController extends Controller
             'country' => 'required',
             'city' => 'required',
             'password' => 'required',
+            'password_confirmation'=>'required'
 
 
         ], [
@@ -59,7 +60,9 @@ class UserController extends Controller
             'last_name.required' => 'last_name is required',
             'country.required' => 'country is required',
             'city.required' => 'city is required',
-            'password.required' => 'Password is required'
+            'password.required' => 'Password is required',
+            'password_confirmation'=>'Confirm password'
+
         ]);
         $input = request()->all();
         $input['password'] = bcrypt($input['password']);

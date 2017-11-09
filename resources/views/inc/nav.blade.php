@@ -23,13 +23,8 @@
 
         <ul class="navbar-nav mr-auto myli">
             <li><a href="{{route('dash')}}">dashboard </a></li>
-            <li >
-
-
-
-                 <p style="color: #2a88bd;">{{ auth()->user()->username }}</p>
-
-            </li>
+            <li><a href="{{route('CreateART')}}">Create article </a></li>
+            <li> <h4>{{ auth()->user()->username }}</h4></li>
             <li>
                 <a href="/base">logout</a>
                 {{ csrf_field() }}
