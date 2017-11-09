@@ -5,11 +5,11 @@
 
 
     <div class="row" >
-        <div class="col-sm-8" >
+        <div class="col-sm-8" style="margin: auto;" >
 
             <h1>{{$article->title}}</h1>
+            <img style="width:20%" src="/storage/cover_images/{{$article->cover_image}}">
 
-            <img style="" src="storage/storage/cover_images/{{$article->id}}">{{$article->cover_image}}
 
             <br><br>
             <div>

@@ -53,10 +53,13 @@
     vertical-align: inherit;
     border-top: 1px solid #e9ecef;
 }
+footer{
+
+}
 .mf{
     background: grey;
     text-align: center;
-
+    margin-top: 10px;
 
 }
 .mf p{

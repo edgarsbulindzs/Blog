@@ -995,8 +995,11 @@ var app = new Vue({
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+throw new Error("Cannot find module \"laravel-echo\"");
 
 window._ = __webpack_require__(12);
 
@@ -1007,9 +1010,9 @@ window._ = __webpack_require__(12);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(14);
+    window.$ = window.jQuery = __webpack_require__(14);
 
-  __webpack_require__(15);
+    __webpack_require__(15);
 } catch (e) {}
 
 /**
@@ -1021,10 +1024,10 @@ try {
 window.axios = __webpack_require__(16);
 
 window.axios.defaults.headers.common = {
-  'X-Requested-With': 'XMLHttpRequest'
+    'X-Requested-With': 'XMLHttpRequest'
 };
 /**
- * Next we will registerController the CSRF Token as a common header with Axios so that
+ * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just
  * a simple convenience so we don't have to attach every token manually.
  */
@@ -1032,9 +1035,9 @@ window.axios.defaults.headers.common = {
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -1043,14 +1046,14 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo'
 
-// window.Pusher = require('pusher-js');
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
+window.Pusher = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"pusher-js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
+    broadcaster: 'pusher',
+    key: 'your-pusher-key'
+});
 
 /***/ }),
 /* 12 */
@@ -28378,7 +28381,7 @@ jQuery.nodeName = nodeName;
 // Register as a named AMD module, since jQuery can be concatenated with other
 // files that may use define, but not via a proper concatenation script that
 // understands anonymous AMD modules. A named AMD is safest and most robust
-// way to registerController. Lowercase jquery is used because AMD module names are
+// way to register. Lowercase jquery is used because AMD module names are
 // derived from file names, and jQuery is normally delivered in a lowercase
 // file name. Do this after creating the global so that if an AMD module wants
 // to call noConflict to hide this version of jQuery, it will work.
@@ -29682,7 +29685,7 @@ if (typeof jQuery === 'undefined') {
     if ($this.is('a')) e.preventDefault()
 
     $target.one('show.bs.modal', function (showEvent) {
-      if (showEvent.isDefaultPrevented()) return // only registerController focus restorer if modal will actually get shown
+      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown
       $target.one('hidden.bs.modal', function () {
         $this.is(':visible') && $this.trigger('focus')
       })
@@ -37083,7 +37086,7 @@ function createPatchFunction (backend) {
         ) {
           warn(
             'Unknown custom element: <' + tag + '> - did you ' +
-            'registerController the component correctly? For recursive components, ' +
+            'register the component correctly? For recursive components, ' +
             'make sure to provide the "name" option.',
             vnode.context
           );
@@ -42344,7 +42347,7 @@ exports.clearImmediate = clearImmediate;
       for (var i = 0; i < args.length; i++) {
           args[i] = arguments[i + 1];
       }
-      // Store and registerController the task
+      // Store and register the task
       var task = { callback: callback, args: args };
       tasksByHandle[nextHandle] = task;
       registerImmediate(nextHandle);
@@ -42624,7 +42627,7 @@ module.exports = function normalizeComponent (
       if (injectStyles) {
         injectStyles.call(this, context)
       }
-      // registerController component module identifier for async chunk inferrence
+      // register component module identifier for async chunk inferrence
       if (context && context._registeredComponents) {
         context._registeredComponents.add(moduleIdentifier)
       }
@@ -42651,7 +42654,7 @@ module.exports = function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // registerController for functioal component in vue file
+      // register for functioal component in vue file
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
         return existing(h, context)

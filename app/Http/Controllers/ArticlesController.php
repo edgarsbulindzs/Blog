@@ -60,14 +60,12 @@ class ArticlesController extends Controller
         $article->save();
         return redirect('/blog')->with('success', 'Article Created');
     }
-
     public function show($id)
     {
         $article = Article::find($id);
 
         return view('articles.single')->with('article', $article);
     }
-
     public function edit($id)
     {
         $article = Article::find($id);
@@ -77,7 +75,6 @@ class ArticlesController extends Controller
         }
         return view('articles.edit')->with('article', $article);
     }
-
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -85,7 +82,6 @@ class ArticlesController extends Controller
             'body' => 'required',
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-
         // faila augsuplades handler
         if ($request->hasFile('cover_image')) {
             // iegust faila tiupu
@@ -109,7 +105,6 @@ class ArticlesController extends Controller
         $articles->save();
         return redirect('/blog')->with('success', 'Article Updated');
     }
-
     public function destroy($id)
     {
         $article = Article::find($id);
@@ -121,7 +116,6 @@ class ArticlesController extends Controller
             // izdzes bildi
             Storage::delete('public/cover_images/' . $article->cover_image);
         }
-
         $article->delete();
         return redirect('/blog')->with('success', 'article Removed');
     }

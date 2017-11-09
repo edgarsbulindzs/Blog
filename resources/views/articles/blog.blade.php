@@ -13,7 +13,7 @@
                     <div class="col-md-4 col-sm-4 ">
                         <div>
 
-                        <img class="myimg" src="storage/storage/cover_images/{{$articles->cover_image}}" alt="{{$articles->cover_image}}">
+                        <img class="myimg" src="/storage/cover_images/{{$articles->cover_image}}" alt="{{$articles->cover_image}}">
 
                         </div>
                     </div>

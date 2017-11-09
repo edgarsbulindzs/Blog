@@ -14,6 +14,7 @@ class Article extends Model
     // Timestamps
     public $timestamps = true;
 
+    protected $fillable = ['cover_images'];
     public function user(){
         return $this->belongsTo('App\users');
     }
