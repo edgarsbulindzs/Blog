@@ -52,7 +52,7 @@
                         <div class="card-body">
                             <h4 class="card-title">{{$article->title}}</h4>
                             <p class="card-text">{{$article->body}}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="/blog/{{$article->id}}" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
