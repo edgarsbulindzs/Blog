@@ -31,18 +31,18 @@
                                                 <td >
 
                                                     <a href="{{route('edit', $article->id)}}">
-                                                        <button type="submit" class="btn btn-primary pull-right">edit
+                                                        <button type="submit" class="btn btn-warning pull-right">edit
                                                         </button>
                                                     </a>
 
 
                                                         <a href="{{route('delete',$article->id)}}">
-                                                            <button type="submit" class="btn btn-primary pull-right">Delete
+                                                            <button type="submit" class="btn btn-danger pull-right">Delete
                                                             </button>
                                                             </a>
 
 
-                                                    <a href="/blog">
+                                                    <a href="{{route('CreateART')}}">
                                                         <button type="submit" class="btn btn-primary pull-right">Article</button>
                                                     </a>
 
@@ -57,13 +57,12 @@
                                     </tr>
                                 @endforeach
                             </table>
-                            <a href="{{route('CreateART')}}">
-                            <button type="submit" class="btn btn-primary pull-right">Create Article</button></a>
+
                             <a href="/blog">
                                 <button type="submit" class="btn btn-primary pull-right">Back to Article</button>
                             </a>
                         @else
-                            <p>You have no posts</p>
+                            <p>You have no articles</p>
                         @endif
                     </div>
                 </div>
