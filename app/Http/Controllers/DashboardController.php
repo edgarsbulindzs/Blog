@@ -7,17 +7,10 @@ use Illuminate\Http\Request;
 use App\Article;
 class DashboardController extends Controller
 {
-//    public function dsa(users $users)
-//    {
-//
-//
-//
-//            $articles = $users->article()->latest()->get();
-//            return view('dashboard.dashboard', compact('articles'));
-//
-//
-//
-//    }
+    public function __construct()
+   {
+       $this->middleware('Login');
+   }
     public function dsa(Request $request)
     {
 //

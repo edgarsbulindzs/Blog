@@ -19,11 +19,11 @@ class UserController extends Controller
      * UserController constructor.
      */
 //
-
-    public function __construct()
-    {
-        $this->middleware('Login')->except('create','dsa');
-    }
+//
+//    public function __construct()
+//    {
+//        $this->middleware('Login')->except('create','dsa');
+//    }
 
     public function create()
     {
@@ -31,11 +31,19 @@ class UserController extends Controller
 
     }
 
+//    public function dsa()
+//    {
+//
+//
+//        $user_id = auth()->user()->id;
+//        $user = users::find($user_id);
+//        return view('dashboard.dashboard')->with('articles', $user->articles);
+//
+//    }
 
 
     public function store(Request $request)
     {
-
         users::create([
             'username' => request('username'),
             'first_name' => request('first_name'),

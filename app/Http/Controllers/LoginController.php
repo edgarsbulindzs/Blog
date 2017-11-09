@@ -36,21 +36,19 @@ class LoginController extends Controller
         } else {
             return back()->withInput()->withErrors(
                 [
-                    'username' => 'username is incorrect',
-                    'password'=> 'password is incorrect'
-
+                    'username' => 'username or password is incorrect',
                 ]);
         }
 
     }
 //    public function red(){
-//        if (auth()->guest() == true){
-//            return redirect('/login');
+//    if (auth()->guest() == true){
+//        return redirect('/login');
 //
-//        }elseif(auth()->guest() == false){
-//            return view('dashboard.dashboard');
-//        }
+//    }elseif(auth()->guest() == false){
+//        return view('dashboard.dashboard');
 //    }
+
 
     public function logout(Request $request)
     {

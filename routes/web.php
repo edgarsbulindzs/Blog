@@ -11,7 +11,7 @@ Route::group(['middleware' => 'web'], function () {
     //atgriež reģistrācijas formu
     Route::get('/registration/create', 'UserController@create')->name('registration');
 //parbauda ievietotos datus un saglabā tos. pēc tam aizsūta uz dashboard kā jau lietotāju
-    Route::post('/registration', 'UserController@store');
+    Route::post('/registration/', 'UserController@store');
 //Pārbauda vai lietotājs ir reģistrēts un ielagojoties aizsūta uz dashboard
     Route::post('/dashboard','LoginController@authenticate')->name('authen');
 //dzēš sesijas datus izlagojoties un aizsūta uz sākumu
